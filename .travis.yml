@@ -8,4 +8,5 @@ before_install:
 
 script:
   - ./terraform apply -auto-approve
+  - ./terraform init
   - ./deploy_infra.sh
