@@ -3,7 +3,7 @@ notifications:
 #Install a Terraform executable locally
 before_install:
   - wget https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_linux_amd64.zip
-  - unzip terraform_0.10.6_linux_amd64.zip
+  - unzip terraform_0.11.3_linux_amd64.zip
   - chmod +x deploy_infra.sh
 
 script:
