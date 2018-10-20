@@ -1,1 +1,1 @@
-# affiliate-project
+# affiliate-project-infrastructure
