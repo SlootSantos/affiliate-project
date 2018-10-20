@@ -45,3 +45,17 @@ variable "s3_bucket_env" {
     }
   }
 }
+
+variable "s3_bucket_www" {
+  type = "map"
+
+  default = {
+    prod = {
+      description = "This is the production hosting Bucket"
+    }
+
+    test = {
+      description = "This is the test hosting Bucket"
+    }
+  }
+}

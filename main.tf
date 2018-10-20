@@ -18,8 +18,7 @@ resource "aws_s3_bucket" "affiliate_project_bucket_state" {
   }
 }
 
-###############################
-
+########### BACKEND ####################
 
 # ### ELASTIC BEANSTALK ###
 # # application #
@@ -84,3 +83,33 @@ resource "aws_s3_bucket" "affiliate_project_bucket_state" {
 #   }
 # }
 
+########### Frontend ####################
+### S3 ###
+# Standard Bucket Prod #
+resource "aws_s3_bucket" "affiliate_bucket_www_prod" {
+  bucket = "${var.s3_bucket_www.["prod"]}"
+  acl    = "public-read"
+
+  // We also need to create a policy that allows anyone to view the content.
+  // This is basically duplicating what we did in the ACL but it's required by
+  // AWS. This post: http://amzn.to/2Fa04ul explains why.
+  policy = <<POLICY
+{
+  "Version":"2012-10-17",
+  "Statement":[
+    {
+      "Sid":"AddPerm",
+      "Effect":"Allow",
+      "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::${var.s3_bucket_www.["prod"]}/*"]
+    }
+  ]
+}
+POLICY
+
+  website {
+    index_document = "index.html"
+    error_document = "404.html"
+  }
+}

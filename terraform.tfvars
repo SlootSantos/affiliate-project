@@ -17,3 +17,8 @@ s3_bucket_env = {
   prod = "prod-affiliate-project-bucket"
   test = "test-affiliate-project-bucket"
 }
+
+s3_bucket_www = {
+  prod = "affiliate.custom-commerce.de"
+  test = "affiliate-test.custom-commerce.de"
+}
