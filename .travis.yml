@@ -7,5 +7,5 @@ before_install:
   - chmod +x deploy_infra.sh
 
 script:
-  - ./terraform --help init
+  - ./terraform apply -auto-approve
   - ./deploy_infra.sh
