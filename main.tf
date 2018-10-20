@@ -18,22 +18,6 @@ resource "aws_s3_bucket" "affiliate_project_bucket_state" {
   }
 }
 
-resource "aws_s3_bucket" "testtesttet" {
-  bucket = "test-affiliated-project-bucket-state"
-
-  versioning {
-    enabled = true
-  }
-
-  lifecycle {
-    prevent_destroy = true
-  }
-
-  tags {
-    Name = "${var.affiliate_tag}"
-  }
-}
-
 ###############################
 
 
